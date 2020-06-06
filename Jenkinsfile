@@ -13,8 +13,10 @@ pipeline {
             }
         }
         stage('Check-git-Secrets')
-        {
+        { 
+            steps {
             sh 'docker run cloudkats/trufflehog https://github.com/ek2020/webapp.git'
+            }
         }
         stage('Build') {
             steps {
