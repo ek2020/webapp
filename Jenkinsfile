@@ -12,6 +12,10 @@ pipeline {
                 '''
             }
         }
+        stage('Check-git-Secrets')
+        {
+            sh 'docker run cloudkats/trufflehog https://github.com/ek2020/webapp.git'
+        }
         stage('Build') {
             steps {
                 sh  'mvn clean package' 
