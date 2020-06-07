@@ -15,7 +15,9 @@ pipeline {
         stage('Check-git-Secrets')
         { 
             steps {
-            sh 'docker run cloudkats/trufflehog https://github.com/ek2020/webapp.git'
+            sh 're trufflehog||true'
+            sh 'docker run gesellix/trufflehog --json https://github.com/cehkunal/webapp.git > trufflehog'
+            sh 'cat trufflehog'
             }
         }
         stage('Build') {
