@@ -17,7 +17,7 @@ pipeline {
             steps {
             sh 're trufflehog||true'
             sh 'docker run gesellix/trufflehog --json https://github.com/ek2020/webapp.git > trufflehog'
-            sh 'cat trufflehog'
+            sh 'cat  trufflehog'
             }
         }
         stage('Source Composition Analysis') {
